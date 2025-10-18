@@ -2110,11 +2110,11 @@ void Client::Handle_OP_AutoAttack(const EQApplicationPacket *app)
 	}
 
 
-	if (Admin() > 0)
-	{
-		Message(CC_Red, "You cannot autoattack as a GM.");
-		return;
-	}
+	// if (Admin() > 0)
+	// {
+	// 	Message(CC_Red, "You cannot autoattack as a GM.");
+	// 	return;
+	// }
 
 	if (app->pBuffer[0] == 0)
 	{
@@ -2606,12 +2606,12 @@ void Client::Handle_OP_CastSpell(const EQApplicationPacket *app)
 		return;
 	}
 
-	if (Admin() > 0)
-	{
-		Message(CC_Red, "You cannot cast spells as a GM.");
-		InterruptSpell(castspell->spell_id);
-		return;
-	}
+	// if (Admin() > 0)
+	// {
+	// 	Message(CC_Red, "You cannot cast spells as a GM.");
+	// 	InterruptSpell(castspell->spell_id);
+	// 	return;
+	// }
 
 	if (Admin() > 0 && IsValidSpell(castspell->spell_id)) {
 		Mob* SpellTarget = entity_list.GetMob(castspell->target_id);
@@ -3287,11 +3287,11 @@ void Client::Handle_OP_CombatAbility(const EQApplicationPacket *app)
 	}
 
 
-	if (Admin() > 0)
-	{
-		Message(CC_Red, "You cannot use abilities or thrown items as a GM.");
-		return;
-	}
+	// if (Admin() > 0)
+	// {
+	// 	Message(CC_Red, "You cannot use abilities or thrown items as a GM.");
+	// 	return;
+	// }
 
 	OPCombatAbility(app);
 	return;
@@ -3690,12 +3690,12 @@ void Client::Handle_OP_CorpseDrag(const EQApplicationPacket *app)
 
 void Client::Handle_OP_CreateObject(const EQApplicationPacket *app) 
 {
-	if (Admin() > 0)
-	{
-		std::string msg = "You cannot drop items as a GM. The emulator has had enough issues with that.";
-		Message(CC_Red, msg.c_str());
-		return;
-	}
+	// if (Admin() > 0)
+	// {
+	// 	std::string msg = "You cannot drop items as a GM. The emulator has had enough issues with that.";
+	// 	Message(CC_Red, msg.c_str());
+	// 	return;
+	// }
 
 	DropItem(EQ::invslot::slotCursor);
 	return;
